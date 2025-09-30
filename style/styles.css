@@ -38,6 +38,12 @@ body {
     min-height: 100vh; /* Минимальная высота равна высоте окна браузера */
 }
 
+.main-heading {
+    font-size: 32px;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+    text-align: center;
+}
 
 /* ===== КОНТЕЙНЕР СТРАНИЦЫ ===== */
 .page-container {
@@ -241,6 +247,12 @@ body {
     margin: 0 0 10px 0; /* Отступ снизу */
     font-weight: 600; /* Жирный шрифт */
 }
+.news-text {
+    font-size: 18px;
+    color: var(--color-text-light);
+    line-height: 1.5;
+}
+
 
 .news-meta {
     color: var(--color-text-light); /* Серый цвет текста */
@@ -274,6 +286,18 @@ body {
     border-radius: 12px; /* Скругленные углы */
     box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* Легкая тень */
 
+    position: relative; /* чтобы сверху прилепить ту штуку */
+}
+
+.product-badge {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    background: red;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 20px;
 }
 
 .product-image {
