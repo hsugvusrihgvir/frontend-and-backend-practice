@@ -46,6 +46,7 @@ body {
     background: var(--color-bg); /* Белый фон для основного содержимого */
     min-height: 100vh; /* Минимальная высота равна высоте окна браузера */
     box-shadow: 0 0 30px rgba(0,0,0,0.1); /* Легкая тень вокруг всего контента */
+    overflow-x: hidden;
 }
 
 
@@ -256,9 +257,9 @@ body {
 
 .grid-container{
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 16px;
-    grid-template-columns: repeat(3, minmax(220px, 1fr));
-    grid-template-rows: repeat(2, 1fr);    /* 2 строки равной высоты */
+    grid-template-rows: repeat(auto-fit, 1fr);
     align-items: stretch;
 }
 
@@ -276,6 +277,7 @@ body {
 }
 
 .product-image {
+    aspect-ratio: 1 / 1;
     border-radius: 15px; /* Скругленные углы фото */
     object-fit: cover; /* Обрезка фото для сохранения пропорций */
     margin: 20px auto; /* Центрирование и отступы */
