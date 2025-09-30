@@ -85,7 +85,6 @@ body {
     padding: 0; /* Убираем внутренние отступы */
     justify-content: center; /* Выравнивание по центру */
     gap: 25px; /* Расстояние между элементами навигации */
-
     flex-wrap: wrap;
 }
 .nav-item {
@@ -277,11 +276,10 @@ body {
 }
 
 .product-image {
-    width: 220px; /* Фиксированная ширина фото */
-    height: 280px; /* Фиксированная высота фото */
     border-radius: 15px; /* Скругленные углы фото */
     object-fit: cover; /* Обрезка фото для сохранения пропорций */
     margin: 20px auto; /* Центрирование и отступы */
+    width: 100%; height: auto; display: block;
 }
 
 .product-name {
