@@ -26,6 +26,35 @@
     --color-product-gradient-start: #f6f2f6; /* фон для карточек с товарами */
     --color-product-gradient-end: #e6e5ec;
 
+    --font-size-base: 16px;
+}
+
+body.theme-dark{
+    --color-line: #5C7A8A; /* полоса слева — более светлая для контраста */
+
+    --color-body-bg-gradient-start: #1b1f23; /* общий фон */
+    --color-body-bg-gradient-end: #2a3238;
+
+    --color-header-gradient-start: #2e3a3f; /* хэдер фон */
+    --color-header-gradient-end: #44606b;
+
+    --color-skill-gradient-start: #3f5662;  /* фон для навыков */
+    --color-skill-gradient-end: #587684;
+
+    --color-button-gradient-start: #557a95;  /* фон для кнопок */
+    --color-button-gradient-end: #7395ae;
+
+    --color-text-dark: #e6ecf0; /* основной текст — почти белый, но мягкий */
+    --color-text-light: #b7c2ca; /* второстепенный текст */
+
+    --color-bg: #121518;  /* общий фон */
+    --color-bg-about-me:  #1b2024;  /* фон блока "обо мне" */
+    --color-bg-card:      #1f252a;  /* фон карточки */
+    --color-bg-nav: #838d9c;  /* навигация */
+
+    --color-product-gradient-start: #242a2f; /* карточки товаров */
+    --color-product-gradient-end: #1a1f23;
+
 }
 
 body {
@@ -133,6 +162,25 @@ body {
     font-weight: 700;
 }
 
+.theme-toggle{
+    background: linear-gradient(90deg, var(--color-button-gradient-start), var(--color-button-gradient-end));
+    color: var(--color-bg);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;                 /* вместо block */
+    align-items: center;           /* выравнивание по вертикали */
+    justify-content: center;       /* выравнивание по горизонтали */
+    width: 130px;                  /* одинаковая ширина */
+    height: 45px;                  /* одинаковая высота */
+    margin: 10px 0;
+    text-align: center;            /* центрирование текста */
+    box-sizing: border-box;
+}
+
 /* ===== ОСНОВНОЙ КОНТЕНТ ===== */
 main.content {
     width: 90%;
@@ -180,7 +228,7 @@ main.content {
     border-radius: 15px; /* Скругленные углы */
     margin: 30px 0; /* Вертикальные отступы */
     border-left: 5px solid  var(--color-line); /* Синяя полоса слева */
-    font-size: 16px; /* Размер шрифта текста */
+    font-size: var(--font-size-base); /* Размер шрифта текста */
     line-height: 1.8; /* Межстрочный интервал */
 }
 
@@ -200,7 +248,7 @@ main.content {
     padding: 12px 25px; /* Внутренние отступы */
     border-radius: 25px; /* Круглые углы (капсульная форма) */
     font-weight: 600; /* Жирный шрифт */
-    font-size: 14px; /* Размер шрифта */
+    font-size: var(--font-size-base); /* Размер шрифта */
     box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3); /* Тень с голубым оттенком */
     transition: all 0.3s ease; /* Плавные анимации при изменении */
 }
@@ -466,15 +514,15 @@ dialog {
     overflow-y: auto;
 }
 .modal-header {
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--color-bg-nav) 0%, var(--color-skill-gradient-end) 100%);
+    color: var(--color-body-bg-gradient-end);
     padding: 1.5rem;
     border-radius: 12px 12px 0 0;
     margin: 0;
 }
 .modal-header h2 {
     margin: 0;
-    color: white;
+    color: var(--color-body-bg-gradient-end);
     font-size: 1.5rem;
 }
 .modal-content {
@@ -487,14 +535,14 @@ dialog {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: var(--color-bg-nav);
 }
 .form-group input,
 .form-group select,
 .form-group textarea {
     width: 100%;
     padding: 0.75rem;
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--color-body-bg-gradient-end);
     border-radius: 6px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
@@ -504,7 +552,7 @@ dialog {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: var(--color-skill-gradient-end);
 }
 .form-group textarea {
     min-height: 100px;
@@ -526,16 +574,16 @@ dialog {
     font-weight: 600;
 }
 .btn-primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--color-header-gradient-end) 0%, var(--color-button-gradient-start) 100%);
+    color: var(--color-body-bg-gradient-end);
 }
 .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 .btn-secondary {
-    background: #f8f9fa;
-    color: #2c3e50;
+    background: var(--color-body-bg-gradient-end);
+    color: var(--color-bg-nav);
     border: 2px solid #e9ecef;
 }
 .btn-secondary:hover {

@@ -23,6 +23,26 @@
     </nav>
 
     <main class="content">
+        <button class="theme-toggle" type="button" aria-pressed="false">Тема</button>
+        <script defer>
+            const KEY='theme', btn=document.querySelector('.theme-toggle');
+            const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+            // Автовыбор: системная тема или сохранённый выбор пользователя
+            if(localStorage.getItem(KEY)==='dark' || (!localStorage.getItem(KEY) &&
+                prefersDark)){
+                document.body.classList.add('theme-dark');
+                btn?.setAttribute('aria-pressed','true');
+            }
+            // Переключение по кнопке с сохранением в localStorage
+            btn?.addEventListener('click', ()=>{
+                const isDark=document.body.classList.toggle('theme-dark');
+                btn.setAttribute('aria-pressed', String(isDark));
+                localStorage.setItem(KEY, isDark ? 'dark' : 'light');
+            });
+        </script>
+
+
+
         <section class="contacts">
             <p class="contact-item">
             <img class="contact-photo" src="../images/contact.jpg" alt="Фото собаки" width="270" height="200">
@@ -43,7 +63,7 @@
         </section>
     </main>
 
-    <footer class="footer">Футер</footer>
+    <footer class="footer">>&copy; 2024 Мой сайт</footer>
 
     <!-- Модальное окно для формы обратной связи -->
     <dialog id="contactModal">
@@ -96,7 +116,7 @@
                 <div class="modal-actions">
                     <!-- Кнопка отмены с автоматическим закрытием через
                    form method="dialog" -->
-                    <button type="submit" class="btn btn-secondary">Отмена</button>
+                    <button type="submit" class="btn btn-secondary" onclick="contactModal.close()">Отмена</button>
                     <!-- Кнопка отправки с обработкой через JavaScript -->
                     <button type="button" class="btn btn-primary"
                             onclick="submitForm()">Отправить</button>
