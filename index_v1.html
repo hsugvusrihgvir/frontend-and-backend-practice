@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семестровая работа</title>
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+
+<body>
+<div class="page-container">
+    <header class="header">
+        <h1 class="main-heading">Хэдер</h1>
+    </header>
+
+    <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+            <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
+            <li class="nav-item"><a class="nav-link" href="pages/practices.html">Практики</a></li>
+            <li class="nav-item"><a class="nav-link" href="pages/goods_v1.html">Товары</a></li>
+            <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
+
+        </ul>
+    </nav>
+
+
+    <main class="content">
+
+        <button class="theme-toggle" type="button" aria-pressed="false">Тема</button>
+        <script defer>
+            const KEY='theme', btn=document.querySelector('.theme-toggle');
+            const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+            // Автовыбор: системная тема или сохранённый выбор пользователя
+            if(localStorage.getItem(KEY)==='dark' || (!localStorage.getItem(KEY) &&
+                prefersDark)){
+                document.body.classList.add('theme-dark');
+                btn?.setAttribute('aria-pressed','true');
+            }
+            // Переключение по кнопке с сохранением в localStorage
+            btn?.addEventListener('click', ()=>{
+                const isDark=document.body.classList.toggle('theme-dark');
+                btn.setAttribute('aria-pressed', String(isDark));
+                localStorage.setItem(KEY, isDark ? 'dark' : 'light');
+            });
+        </script>
+
+        <article class="profile-header">
+            <h1 class="profile-title">Информация об авторе</h1>
+            <img class="profile-photo" src="images/photo.jpg" alt="Фото автора" width="200" height="250">
+            <h2 class="profile-name">Емельянова Дарья Олеговна</h2>
+            <p class="profile-group">ЭФБО-03-24</p>
+        </article>
+
+        <section class="about-me">
+            <p>Обо мне: </p>
+        </section>
+
+        <section class="skills-container">
+            <div class="skill-tag">Навык 1</div>
+            <div class="skill-tag">Навык 2</div>
+            <div class="skill-tag">Навык 3</div>
+            <div class="skill-tag">Навык 4</div>
+        </section>
+
+        <h2 class="section-title">Мой опыт работы</h2>
+        <section class="experience-grid">
+
+            <div class="experience-card">
+                <h3 class="experience-title">Опыт 1</h3>
+                <p class="experience-desc">Строила замок в Майнкрафте.</p>
+            </div>
+
+            <div class="experience-card">
+                <h3 class="experience-title">Опыт 2</h3>
+                <p class="experience-desc">Работаю прокрастинатором.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">>&copy; 2024 Мой сайт</footer>
+</div>
+</body>
+</html>

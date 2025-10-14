@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товары — Семестровая работа</title>
+    <link rel="stylesheet" href="../style/styles.css">
+</head>
+<body>
+<div class="page-container">
+    <header class="header">
+        <h1 class="main-heading">Хэдер</h1>
+    </header>
+
+    <nav class="nav">
+        <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="../index_v1.html">Главная</a></li>
+            <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+            <li class="nav-item"><a class="nav-link" href="practices.html">Практики</a></li>
+            <li class="nav-item"><a class="nav-link" href="goods_v1.html">Товары</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+        </ul>
+    </nav>
+
+    <main class="content">
+
+        <button class="theme-toggle" type="button" aria-pressed="false">Тема</button>
+        <script defer>
+            const KEY='theme', btn=document.querySelector('.theme-toggle');
+            const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+            // Автовыбор: системная тема или сохранённый выбор пользователя
+            if(localStorage.getItem(KEY)==='dark' || (!localStorage.getItem(KEY) &&
+                prefersDark)){
+                document.body.classList.add('theme-dark');
+                btn?.setAttribute('aria-pressed','true');
+            }
+            // Переключение по кнопке с сохранением в localStorage
+            btn?.addEventListener('click', ()=>{
+                const isDark=document.body.classList.toggle('theme-dark');
+                btn.setAttribute('aria-pressed', String(isDark));
+                localStorage.setItem(KEY, isDark ? 'dark' : 'light');
+            });
+        </script>
+
+
+        <h2 class="section-title">Топ наших товаров</h2>
+
+        <section class="goods-grid grid-container">
+            <article class="goods-card">
+                <span class="goods-badge">СКИДКА 50%!!!!!</span>
+                <img src="../images/good1.jpg" alt="Товар 1" class="goods-image">
+                <div class="goods-name">Яблоки</div>
+                <div class="goods-price">Цена товара 100</div>
+                <button class="goods-button">В корзину</button>
+            </article>
+
+            <article class="goods-card">
+                <img src="../images/good2.jpg" alt="Товар 2" class="goods-image">
+                <div class="goods-name">Кокакола</div>
+                <div class="goods-price">Цена товара 200</div>
+                <button class="goods-button">В корзину</button>
+            </article>
+
+            <article class="goods-card">
+                <img src="../images/good3.jpg" alt="Товар 3" class="goods-image">
+                <div class="goods-name">Самокат</div>
+                <div class="goods-price">Цена товара 1 000</div>
+                <button class="goods-button">В корзину</button>
+            </article>
+
+            <article class="goods-card">
+                <img src="../images/good4.jpg" alt="Товар 4" class="goods-image">
+                <div class="goods-name">Ноутбук</div>
+                <div class="goods-price">Цена товара 10000000</div>
+                <button class="goods-button">В корзину</button>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">>&copy; 2024 Мой сайт</footer>
+</div>
+</body>
+</html>
